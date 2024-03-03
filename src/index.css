@@ -1,7 +1,11 @@
 *{
-  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
+}
+
+#root{
+  width: 900px;
+  margin: 0 auto;
 }
