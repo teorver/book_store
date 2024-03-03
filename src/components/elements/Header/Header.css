@@ -1,0 +1,21 @@
+.header-wrapper{
+    padding: 24px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-span{
+    color: rgba(49, 48, 55, 1);
+    font-family: "Helios", sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+
+}
+
+.search{}
+
+.search-input{}
+
+.action-buttons{}
