@@ -5,11 +5,4 @@ export interface IBook {
     price: string;
     image: string;
     url?: string;
-    rating: string;
-    desc?: string;
-    authors?: string;
-    publisher?: string;
-    pages?: string;
-    year?: string;
-    pdf?: string[];
 }
