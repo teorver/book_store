@@ -4,6 +4,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid lightgrey;
 }
 
 .header-span{
@@ -14,8 +15,28 @@
 
 }
 
-.search{}
+.search-input{
+    width: 542px;
+    cursor: pointer;
+}
 
-.search-input{}
+.action-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 23px;
+    padding: 0 16px;
+}
 
-.action-buttons{}
+.icon{
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.ant-input{
+    height: 36px;
+}
+
+:where(.css-dev-only-do-not-override-1k979oh).ant-input-search .ant-input-search-button{
+    height: 46px;
+}

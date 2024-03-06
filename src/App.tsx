@@ -1,9 +1,9 @@
-
+import Header from "./components/elements/Header/Header.tsx";
 
 export default function App() {
   return (
     <div>
-      New Book Store
+      <Header />
     </div>
   );
 }
