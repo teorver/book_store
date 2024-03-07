@@ -1,0 +1,44 @@
+.card-wrapper{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 352px;
+}
+
+.img-wrapper{
+    width: 100%;
+    background-color: aqua;
+}
+
+.book-img{
+    width: 226px;
+    height: 264px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.bookCard{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.book-title{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133%;
+    color: black;
+}
+
+.book-subtitle{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #A8A8A8;
+}
+
+.book-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
