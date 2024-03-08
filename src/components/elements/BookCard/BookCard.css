@@ -1,5 +1,5 @@
 .card-wrapper{
-    margin-top: 30px;
+    margin-top: 48px;
     display: flex;
     flex-direction: column;
     width: 352px;
@@ -27,7 +27,7 @@
     font-weight: 700;
     font-size: 24px;
     line-height: 133%;
-    color: black;
+    color: #313037;
 }
 
 .book-subtitle{
