@@ -1,0 +1,17 @@
+.page-title{
+    margin-top: 72px;
+    width: 373px;
+    font-weight: 700;
+    font-size: 30px;
+    color: #313037;
+}
+
+.cards-wrapper{
+    margin-bottom: 72px;
+}
+
+.home-pagination{
+    padding: 42px 0 72px 0;
+    text-align: center;
+    border-top: 1px solid #E7E7E7;
+}
