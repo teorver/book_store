@@ -16,7 +16,6 @@ const Footer = () => {
                 <span className="copyright-text">All rights reserved</span>
             </div>
         </footer>
-
     );
 };
 
