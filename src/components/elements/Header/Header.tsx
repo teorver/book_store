@@ -17,8 +17,12 @@ const Header = () => {
 
         console.log({ value, books });
         navigate('/search', {state: { value, books }});
-        // return { value, books };
     });
+
+    const onCart = () => {
+        navigate('/your-cart');
+        window.location.reload();
+    };
 
     return (
         <section className="header-wrapper">
@@ -26,7 +30,7 @@ const Header = () => {
             <Search placeholder="Search" allowClear onSearch={onSearch} className="search-input" />
             <div className="action-buttons">
                 <CiHeart className="icon" />
-                <PiShoppingCartDuotone className="icon" />
+                <PiShoppingCartDuotone className="icon" onClick={onCart} />
                 <LuUser className="icon" />
             </div>
         </section>

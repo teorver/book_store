@@ -12,7 +12,7 @@ export interface IOpenedBook {
     subtitle?: string;
     isbn10?: string | undefined;
     isbn13?: string;
-    price?: string;
+    price?: string | undefined;
     language?: string,
     image?: string;
     url?: string;

@@ -4,7 +4,7 @@ import { SlSocialFacebook } from "react-icons/sl";
 import { SlSocialTwitter } from "react-icons/sl";
 import { BsThreeDots } from "react-icons/bs";
 import { RiArrowDownSLine } from "react-icons/ri";
-import {Col, Row} from 'antd';
+import { Col, Row} from 'antd';
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import { Button } from 'antd';
@@ -64,6 +64,18 @@ const SingleBookPage = () => {
         },
     ];
 
+    const addToCart = () => {
+        const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
+        const isBookInCart = existingCart
+            .some((cartItem: IOpenedBook) => cartItem.isbn13 === singleBook?.isbn13);
+
+        if (!isBookInCart && singleBook) {
+            const updatedCart = [...existingCart, singleBook];
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+        }
+        alert('Book added to cart!');
+    };
+
     return (
         <section className="single_book-wrapper">
             <Link to="/">
@@ -113,7 +125,7 @@ const SingleBookPage = () => {
                         </Col>
                     </Row>
                     <button type="button" className="more_details-btn">More details <RiArrowDownSLine /></button>
-                    <button type="button" className="add_to_card-btn">ADD TO CART</button>
+                    <button type="button" className="add_to_card-btn" onClick={addToCart}>ADD TO CART</button>
                     <a href={singleBook?.url} className="show-preview">Preview Book</a>
                 </div>
             </div>

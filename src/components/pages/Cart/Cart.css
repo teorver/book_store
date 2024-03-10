@@ -1,0 +1,148 @@
+.search_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 72px 0;
+}
+
+.cart-title{
+    width: 100%;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 64px;
+}
+
+.card_list{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.cart-img-wrapper{
+    width: 23%;
+    background-color: rgba(202, 239, 240, 1);
+}
+
+.cart-book_img{
+    width: 63%;
+    display: flex;
+    margin: 0 auto;
+}
+
+.cart_book-info{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.cart_item-title{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    color: rgba(49, 48, 55, 1);
+}
+
+.cart_item-subtitle{
+    padding: 8px 0 24px 0;
+    color: rgba(168, 168, 168, 1);
+    font-family: "Helios", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.change_qty{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.qty-btn{
+    cursor: pointer;
+    border: none;
+    border-radius: 1px;
+    background-color: white;
+    padding: 16px 8px;
+    font-size: 26px;
+}
+
+.qty_value{
+    width: 38px;
+    height: 56px;
+    border: none;
+    border-radius: 1px;
+    font-size: 30px;
+}
+
+.book_price-cart{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+    color: rgba(49, 48, 55, 1);
+    display: flex;
+    align-items: center;
+    padding: 66px 115px;
+}
+
+.delete_from_cart{
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 1px;
+    width: 56px;
+}
+
+svg {
+    width: 45px;
+    height: 30px;
+}
+
+.price_count{
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0 77%;
+    gap: 15px;
+}
+
+.cart-row-title{
+    font-family: "Helios", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(168, 168, 168, 1);
+    line-height: 22px;
+    width: 68px;
+}
+
+.cart-row-data{
+    color: rgba(49, 48, 55, 1);
+    font-family: "Helios", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: right;
+    width: 118px;
+}
+
+.check_out-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(49, 48, 55, 1);
+    color: white;
+    padding: 16px 0;
+    border-radius: 1px;
+    border: none;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 700;
+    cursor: pointer;
+}
