@@ -10,6 +10,7 @@ export interface IBook {
 export interface IOpenedBook {
     title?: string;
     subtitle?: string;
+    isbn10?: string | undefined;
     isbn13?: string;
     price?: string;
     language?: string,
