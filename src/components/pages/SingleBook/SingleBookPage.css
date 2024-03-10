@@ -1,0 +1,146 @@
+.single_book-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 0;
+    gap: 30px;
+}
+
+.single_book-title{
+    width: 90%;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 64px;
+}
+
+.book-details{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.single_book_img-wrapper{
+    background-color: rgba(202, 239, 240, 1);
+    width: 544px;
+}
+
+.single_book-img{
+    display: flex;
+    margin: auto;
+}
+
+.book-main{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 0 0;
+    gap: 20px;
+}
+
+.price-rating{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.single_price{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.single_rating{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 13px 0 0 0;
+}
+
+.single-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 72%;
+}
+
+.row-title{
+    font-family: "Helios", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(168, 168, 168, 1);
+    line-height: 22px;
+}
+
+.row-data{
+    color: rgba(49, 48, 55, 1);
+    font-family: "Helios", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: right;
+    width: 207px;
+}
+
+.more_details-btn{
+    border: none;
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.add_to_card-btn{
+    width: 100%;
+    background-color: rgba(49, 48, 55, 1);
+    color: white;
+    padding: 18px 0 14px 0;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.show-preview{
+    text-align: center;
+    font-size: 16px;
+    font-family: "Helios", sans-serif;
+    line-height: 24px;
+    text-decoration: none;
+    color: rgba(49, 48, 55, 1);
+}
+
+.social-icons{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.similar-books{
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.similar-book_grid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.similar-book_el{
+    margin: 0;
+}
+
+.bookmark-btn{
+    background-color: rgba(49, 48, 55, 1);
+    margin: 0 93%;
+    border-radius: 1px;
+}
