@@ -5,8 +5,7 @@ import {handleTotalSum, handleVATValue, sumBooksPrice, vat} from '../../../utils
 import {Col, Input, Row} from "antd";
 import {TiDeleteOutline} from "react-icons/ti";
 import {useEffect, useState} from "react";
-import {IOpenedBook} from "../../../utils/types.ts";
-// import { IOpenedBook } from '../../../utils/types';
+import { IOpenedBook } from '../../../utils/types';
 
 const Cart = () => {
     const [currentQty, setQty] = useState<number>(1);
