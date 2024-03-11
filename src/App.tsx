@@ -6,6 +6,7 @@ import Footer from './components/elements/Footer/Footer';
 import SearchResult from './components/pages/SearchResult/SearchResult';
 import SingleBookPage from './components/pages/SingleBook/SingleBookPage';
 import Cart from './components/pages/Cart/Cart';
+import Favorites from "./components/pages/Favorites/Favorites.tsx";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/search" element={<SearchResult />} />
           <Route path="/books/:bookId" element={<SingleBookPage />} />
           <Route path="/your-cart" element={<Cart />} />
+          <Route path="/favorites" element={<Favorites />} />
       </Routes>
       <Footer />
     </div>
