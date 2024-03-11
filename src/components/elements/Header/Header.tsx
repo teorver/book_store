@@ -24,12 +24,16 @@ const Header = () => {
         window.location.reload();
     };
 
+    const onFavorites = () => {
+        navigate('/favorites');
+    }
+
     return (
         <section className="header-wrapper">
             <span className="header-span">BOOKSTORE</span>
             <Search placeholder="Search" allowClear onSearch={onSearch} className="search-input" />
             <div className="action-buttons">
-                <CiHeart className="icon" />
+                <CiHeart className="icon" onClick={onFavorites} />
                 <PiShoppingCartDuotone className="icon" onClick={onCart} />
                 <LuUser className="icon" />
             </div>

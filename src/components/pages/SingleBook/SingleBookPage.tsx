@@ -1,19 +1,16 @@
 import './SingleBookPage.css';
-import { FaArrowLeft } from "react-icons/fa6";
-import { SlSocialFacebook } from "react-icons/sl";
-import { SlSocialTwitter } from "react-icons/sl";
-import { BsThreeDots } from "react-icons/bs";
-import { RiArrowDownSLine } from "react-icons/ri";
-import { Col, Row} from 'antd';
-import { Tabs } from 'antd';
-import type { TabsProps } from 'antd';
-import { Button } from 'antd';
-import { HeartOutlined } from '@ant-design/icons';
+import {FaArrowLeft} from "react-icons/fa6";
+import {SlSocialFacebook, SlSocialTwitter} from "react-icons/sl";
+import {BsThreeDots} from "react-icons/bs";
+import {RiArrowDownSLine} from "react-icons/ri";
+import type {TabsProps} from 'antd';
+import {Button, Col, Row, Tabs} from 'antd';
+import {HeartOutlined} from '@ant-design/icons';
 
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import isbnSelector from "../../../store/slices/book/book.selector.ts";
-import { useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {IBook, IOpenedBook} from "../../../utils/types.ts";
 import BookCard from "../../elements/BookCard/BookCard.tsx";
 import getBooksInfo from "../../../api/books.ts";
@@ -76,6 +73,18 @@ const SingleBookPage = () => {
         alert('Book added to cart!');
     };
 
+    const saveToFavorites = () => {
+        const existingFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+
+        if (Array.isArray(existingFavorites)) {
+            const updatedFavorites = [...existingFavorites, singleBook];
+            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+            alert('Book is added to bookmarks');
+        } else {
+            console.error('Error: Unable to retrieve existing favorite books from local storage');
+        }
+    };
+
     return (
         <section className="single_book-wrapper">
             <Link to="/">
@@ -84,7 +93,7 @@ const SingleBookPage = () => {
             {singleBook && (<h1 className="single_book-title">{singleBook.title}</h1>)}
             <div className="book-details">
                 <div className="single_book_img-wrapper">
-                    <Button type="primary" icon={<HeartOutlined />} size="large" className="bookmark-btn"/>
+                    <Button type="primary" icon={<HeartOutlined />} size="large" className="bookmark-btn" onClick={saveToFavorites} />
                     {singleBook && (<img src={singleBook.image} alt="#" className="single_book-img" />)}
                 </div>
                 <div className="book-main">
