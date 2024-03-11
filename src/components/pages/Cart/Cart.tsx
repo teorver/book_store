@@ -5,11 +5,12 @@ import {handleTotalSum, handleVATValue, sumBooksPrice, vat} from '../../../utils
 import {Col, Input, Row} from "antd";
 import {TiDeleteOutline} from "react-icons/ti";
 import {useEffect, useState} from "react";
+import {IOpenedBook} from "../../../utils/types.ts";
 // import { IOpenedBook } from '../../../utils/types';
 
 const Cart = () => {
     const [currentQty, setQty] = useState<number>(1);
-    const [cartItems, setCartItems] = useState([]);
+    const [cartItems, setCartItems] = useState<IOpenedBook[] | []>([]);
 
     useEffect(() => {
         const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -29,7 +30,7 @@ const Cart = () => {
     };
 
     const deleteBook = (index: number) => {
-        const updatedCart = [...cartItems.slice(0, index), ...cartItems.slice(index + 1)];
+        const updatedCart: IOpenedBook[] = [...cartItems.slice(0, index), ...cartItems.slice(index + 1)];
         localStorage.setItem('cart', JSON.stringify(updatedCart));
         window.location.reload();
     };
@@ -67,7 +68,7 @@ const Cart = () => {
                         type="button"
                         className="delete_from_cart"
                         onClick={() => deleteBook(index)}
-                    ><TiDeleteOutline className="btn-modifier" /></button>
+                    ><TiDeleteOutline className="delete-btn-modifier" /></button>
                 </div>
             ))}
             <div className="price_count">

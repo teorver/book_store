@@ -18,14 +18,14 @@ const sumBooksPrice = () => {
 const handleVATValue = (a: number, b: number) => {
     switch (b) {
         case 0: return 0;
-        default: return a;
+        default: return a.toFixed(2);
     }
 }
 
 const handleTotalSum = (a: number, b: number) => {
     switch (b) {
         case 0: return 0;
-        default: return a + b;
+        default: return (a + b).toFixed(2);
     }
 };
 
