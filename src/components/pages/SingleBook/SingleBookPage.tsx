@@ -99,7 +99,7 @@ const SingleBookPage = () => {
                 <div className="book-main">
                     <div className="price-rating">
                         <span className="single_price">{singleBook?.price}</span>
-                        <span className="single_rating">{singleBook?.rating}</span>
+                        <span className="single_rating">Book Rating: {singleBook?.rating}</span>
                     </div>
                     <Row className="single-row">
                         <Col className="gutter-row" span={6}>
@@ -153,7 +153,7 @@ const SingleBookPage = () => {
                 </div>
             </div>
             <div className="similar-books">
-                <h2>SIMILAR BOOKS</h2>
+                <h2 className="title-similar-books">SIMILAR BOOKS</h2>
                 <Row className="similar-book_grid">
                     <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }} className="similar-book_el">
                         {books && <BookCard {...books[7]} />}
