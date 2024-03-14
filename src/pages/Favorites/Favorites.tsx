@@ -2,11 +2,11 @@ import './Favorites.css';
 import {FaArrowLeft} from "react-icons/fa6";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {IBook, IOpenedBook} from '../../../utils/types';
+import {IBook, IOpenedBook} from '../../utils/types';
 import {HeartTwoTone} from "@ant-design/icons";
 import {Col, Row} from "antd";
-import BookCard from "../../elements/BookCard/BookCard.tsx";
-import getBooksInfo from "../../../api/books.ts";
+import BookCard from "../../components/BookCard/BookCard.tsx";
+import getBooksInfo from "../../api/books.ts";
 
 const Favorites = () => {
     const [bookmarks, setBookmarks] = useState<IOpenedBook[] | []>([]);

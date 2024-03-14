@@ -1,11 +1,11 @@
 import './Cart.css';
 import {FaArrowLeft} from "react-icons/fa6";
 import {Link} from "react-router-dom";
-import {handleTotalSum, handleVATValue, sumBooksPrice, vat} from '../../../utils/helpers';
+import {handleTotalSum, handleVATValue, sumBooksPrice, vat} from '../../utils/helpers';
 import {Col, Input, Row} from "antd";
 import {TiDeleteOutline} from "react-icons/ti";
 import {useEffect, useState} from "react";
-import { IOpenedBook } from '../../../utils/types';
+import { IOpenedBook } from '../../utils/types';
 
 const Cart = () => {
     const [currentQty, setQty] = useState<number>(1);

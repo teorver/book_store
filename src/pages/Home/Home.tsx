@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Row, Col, Pagination } from 'antd';
-import BookCard from '../../elements/BookCard/BookCard';
-import getBooksInfo from '../../../api/books';
-import { IBook } from '../../../utils/types';
+import BookCard from '../../components/BookCard/BookCard';
+import getBooksInfo from '../../api/books';
+import { IBook } from '../../utils/types';
 import './Home.css';
 
 const Home = () => {

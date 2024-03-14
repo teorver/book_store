@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd';
-import BookCard from '../../elements/BookCard/BookCard';
-import { IBook } from '../../../utils/types';
+import BookCard from '../../components/BookCard/BookCard';
+import { IBook } from '../../utils/types';
 import { useLocation } from 'react-router-dom';
 import './SearchResult.css';
 

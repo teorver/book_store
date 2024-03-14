@@ -1,10 +1,10 @@
-import { IBook } from '../../../utils/types';
+import { IBook } from '../../utils/types';
 import './BookCard.css';
-import { getRandomRating } from '../../../utils/helpers';
+import { getRandomRating } from '../../utils/helpers';
 import { Link } from "react-router-dom";
 
-import { useAppDispatch } from '../../../store/store';
-import { setIsbn } from '../../../store/slices/book/book.slice';
+import { useAppDispatch } from '../../store/store';
+import { setIsbn } from '../../store/slices/book/book.slice';
 
 const BookCard = ({ image, title, subtitle, price, isbn13 }: IBook) => {
     const dispatch = useAppDispatch();

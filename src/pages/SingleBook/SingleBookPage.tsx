@@ -9,11 +9,11 @@ import {HeartOutlined} from '@ant-design/icons';
 
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
-import isbnSelector from "../../../store/slices/book/book.selector.ts";
+import isbnSelector from "../../store/slices/book/book.selector.ts";
 import {useEffect, useState} from "react";
-import {IBook, IOpenedBook} from "../../../utils/types.ts";
-import BookCard from "../../elements/BookCard/BookCard.tsx";
-import getBooksInfo from "../../../api/books.ts";
+import {IBook, IOpenedBook} from "../../utils/types.ts";
+import BookCard from "../../components/BookCard/BookCard.tsx";
+import getBooksInfo from "../../api/books.ts";
 
 const SingleBookPage = () => {
     const bookISBN = useSelector(isbnSelector);
@@ -29,11 +29,8 @@ const SingleBookPage = () => {
 
     useEffect(() => {
         getSingleBook();
-    }, [bookISBN]);
-
-    useEffect(() => {
         getBooksInfo().then(response => setBooks(response));
-    }, []);
+    }, [bookISBN]);
 
     console.log(books);
 
