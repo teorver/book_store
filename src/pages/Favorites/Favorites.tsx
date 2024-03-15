@@ -13,7 +13,6 @@ const Favorites = () => {
     const [books, setBooks] = useState<IBook[] | null>(null);
 
     useEffect(() => {
-        // Retrieve favorites from local storage on component mount
         const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites') || '[]');
         setBookmarks(favoritesFromStorage);
         getBooksInfo().then(response => setBooks(response));

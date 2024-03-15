@@ -1,25 +1,26 @@
-import { useEffect, useState } from "react";
-import { Row, Col, Pagination } from 'antd';
+import {useEffect, useState} from "react";
+import {Col, Pagination, Row} from 'antd';
 import BookCard from '../../components/BookCard/BookCard';
 import getBooksInfo from '../../api/books';
-import { IBook } from '../../utils/types';
+import {IBook} from '../../utils/types';
 import './Home.css';
+import { totalPages } from "../../utils/helpers.ts";
 
 const Home = () => {
     const [books, setBooks] = useState<IBook[] | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 12;
 
     useEffect(() => {
         getBooksInfo().then(response => setBooks(response));
     }, []);
 
+    const itemsPerPage = 12;
     const totalItems = books ? books.length : 0;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-
     const displayedBooks = books ? books.slice(startIndex, endIndex) : [];
+
+    const calculatedPages = totalPages(totalItems, itemsPerPage);
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
@@ -43,7 +44,7 @@ const Home = () => {
                     ))}
                 </Row>
             </div>
-            {totalPages > 1 && (
+            {calculatedPages > 1 && (
                 <Pagination
                     current={currentPage}
                     onChange={handlePageChange}

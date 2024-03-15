@@ -7,32 +7,25 @@ import type {TabsProps} from 'antd';
 import {Button, Col, Row, Tabs} from 'antd';
 import {HeartOutlined} from '@ant-design/icons';
 
-import {Link} from "react-router-dom";
-import {useSelector} from "react-redux";
-import isbnSelector from "../../store/slices/book/book.selector.ts";
+import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {IBook, IOpenedBook} from "../../utils/types.ts";
 import BookCard from "../../components/BookCard/BookCard.tsx";
 import getBooksInfo from "../../api/books.ts";
 
+import { getSingleBook } from "../../api/books.ts";
+import { cartItems } from "../../utils/helpers.ts";
+
 const SingleBookPage = () => {
-    const bookISBN = useSelector(isbnSelector);
+    const { bookId } = useParams<{ bookId: string }>();
+
     const [books, setBooks] = useState<IBook[] | null>(null);
-    const[singleBook, setBook] = useState<IOpenedBook | null>(null);
-
-    const getSingleBook = async () => {
-        const bookDetails = await fetch(`https://api.itbook.store/1.0/books/${bookISBN.isbn13}`, {});
-        const response: IOpenedBook = await bookDetails.json();
-
-        setBook(response);
-    }
+    const [singleBook, setBook] = useState<IOpenedBook | null>(null);
 
     useEffect(() => {
-        getSingleBook();
+        getSingleBook(bookId).then(response => setBook(response));
         getBooksInfo().then(response => setBooks(response));
-    }, [bookISBN]);
-
-    console.log(books);
+    }, [bookId]);
 
     const onChange = (key: string) => {
         if (key === '3') {
@@ -59,12 +52,11 @@ const SingleBookPage = () => {
     ];
 
     const addToCart = () => {
-        const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
-        const isBookInCart = existingCart
+        const isBookInCart = cartItems
             .some((cartItem: IOpenedBook) => cartItem.isbn13 === singleBook?.isbn13);
 
         if (!isBookInCart && singleBook) {
-            const updatedCart = [...existingCart, singleBook];
+            const updatedCart = [...cartItems, singleBook];
             localStorage.setItem('cart', JSON.stringify(updatedCart));
         }
         alert('Book added to cart!');

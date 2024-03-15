@@ -1,4 +1,4 @@
-import {IOpenedBook} from "./types.ts";
+import {IBook, IOpenedBook} from "./types.ts";
 
 const vat = 12.50;
 const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -29,4 +29,21 @@ const handleTotalSum = (a: number, b: number) => {
     }
 };
 
-export { getRandomRating, sumBooksPrice, handleTotalSum, handleVATValue, vat, cartItems };
+const totalPages = (a: number, b: number) => Math.ceil(a / b);
+
+const getDisplayedBooksQty = (page: number, pageItems: number, books: IBook[] | null) => {
+    const startIndex = (page - 1) * pageItems;
+    const endIndex = startIndex + pageItems;
+    return books ? books.slice(startIndex, endIndex) : [];
+}
+
+export {
+    getRandomRating,
+    sumBooksPrice,
+    handleTotalSum,
+    handleVATValue,
+    vat,
+    cartItems,
+    totalPages,
+    getDisplayedBooksQty
+};
