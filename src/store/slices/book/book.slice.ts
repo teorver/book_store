@@ -1,3 +1,5 @@
+// book.slice.ts
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { setSearchResult } from '../../actions';
 
