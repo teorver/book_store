@@ -7,6 +7,7 @@ import { Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { setSearchResult } from '../../store/actions.ts';
 import { useAppDispatch } from '../../store/store.ts';
+import {getSearchResult} from "../../api/books.ts";
 
 const { Search } = Input;
 
@@ -15,8 +16,7 @@ const Header = () => {
     const dispatch = useAppDispatch();
 
     const onSearch = async (value: string) => {
-        const searchBooks = await fetch(`https://api.itbook.store/1.0/search/${value}`);
-        const { books } = await searchBooks.json();
+        const { books } = await getSearchResult(value);
         dispatch(setSearchResult({ value, books }));
         navigate('/search');
     };

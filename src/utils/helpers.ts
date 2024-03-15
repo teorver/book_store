@@ -46,13 +46,6 @@ const handleBookQty = (qtyValue: number, action: string, callBackFunc) => {
     callBackFunc(updatedQty);
 };
 
-const handleSearch = ( async (value: string) => {
-    const searchBooks = await fetch(`https://api.itbook.store/1.0/search/${value}`);
-    const { books } = await searchBooks.json();
-
-    return {value, books };
-});
-
 export {
     getRandomRating,
     sumBooksPrice,
@@ -63,5 +56,4 @@ export {
     totalPages,
     handleBookQty,
     handleLocalStorage,
-    handleSearch
 };
