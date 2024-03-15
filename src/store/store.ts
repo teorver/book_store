@@ -4,7 +4,6 @@ import {useDispatch} from "react-redux";
 
 const rootReducer = combineReducers({
     search: searchReducer,
-    // Add other reducers here if needed
 });
 
 const store = configureStore({

@@ -1,5 +1,3 @@
-// book.slice.ts
-
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { setSearchResult } from '../../actions';
 
@@ -13,11 +11,11 @@ const initialState: SearchState = {
     books: [],
 };
 
-const searchSlice = createSlice({
+ const searchSlice = createSlice({
     name: 'search',
     initialState,
     reducers: {
-        // Define other reducers if needed
+
     },
     extraReducers: (builder) => {
         builder.addCase(setSearchResult, (state, action: PayloadAction<{ value: string; books: any[] }>) => {
