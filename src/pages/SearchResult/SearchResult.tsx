@@ -21,6 +21,7 @@ const SearchResult = () => {
                                 subtitle={book.subtitle}
                                 price={book.price}
                                 image={book.image}
+                                isbn13={book.isbn13}
                             />
                         </Col>
                     ))}

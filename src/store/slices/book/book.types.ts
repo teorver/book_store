@@ -4,6 +4,7 @@ export interface SingleBook {
     value: string;
     price: string;
     image: string;
+    isbn13: string;
 }
 
 const initialBook: SingleBook = {
@@ -12,6 +13,7 @@ const initialBook: SingleBook = {
     value: "",
     price: "",
     image: "",
+    isbn13: "",
 }
 
 export default initialBook;
