@@ -14,7 +14,7 @@ import BookCard from "../../components/BookCard/BookCard.tsx";
 import getBooksInfo from "../../api/books.ts";
 
 import { getSingleBook } from "../../api/books.ts";
-import { cartItems } from "../../utils/helpers.ts";
+import { getLocalStorageCart } from "../../utils/helpers.ts";
 
 const SingleBookPage = () => {
     const { bookId } = useParams<{ bookId: string }>();
@@ -52,11 +52,11 @@ const SingleBookPage = () => {
     ];
 
     const addToCart = () => {
-        const isBookInCart = cartItems
+        const isBookInCart = getLocalStorageCart
             .some((cartItem: IOpenedBook) => cartItem.isbn13 === singleBook?.isbn13);
 
         if (!isBookInCart && singleBook) {
-            const updatedCart = [...cartItems, singleBook];
+            const updatedCart = [...getLocalStorageCart, singleBook];
             localStorage.setItem('cart', JSON.stringify(updatedCart));
         }
         alert('Book added to cart!');

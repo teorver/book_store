@@ -7,26 +7,22 @@ import {HeartTwoTone} from "@ant-design/icons";
 import {Col, Row} from "antd";
 import BookCard from "../../components/BookCard/BookCard.tsx";
 import getBooksInfo from "../../api/books.ts";
+import {getLocalStorageCart, handleLocalStorage} from "../../utils/helpers.ts";
 
 const Favorites = () => {
     const [bookmarks, setBookmarks] = useState<IOpenedBook[] | []>([]);
     const [books, setBooks] = useState<IBook[] | null>(null);
 
     useEffect(() => {
-        const favoritesFromStorage = JSON.parse(localStorage.getItem('favorites') || '[]');
-        setBookmarks(favoritesFromStorage);
+        setBookmarks(getLocalStorageCart);
         getBooksInfo().then(response => setBooks(response));
     }, []);
 
     const handleBookmarkDelete = (index: number) => {
-        // Create a copy of the bookmarks array
         const updatedBookmarks = [...bookmarks];
-        // Remove the selected item from the copy
         updatedBookmarks.splice(index, 1);
-        // Update state with the modified array
         setBookmarks(updatedBookmarks);
-        // Update local storage with the modified array
-        localStorage.setItem('favorites', JSON.stringify(updatedBookmarks));
+        handleLocalStorage(updatedBookmarks);
     };
 
     return (

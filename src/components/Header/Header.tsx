@@ -3,21 +3,23 @@ import { CiHeart } from "react-icons/ci";
 import { PiShoppingCartDuotone } from "react-icons/pi";
 import { LuUser } from "react-icons/lu";
 import { Input } from 'antd';
-import type { SearchProps } from 'antd/es/input/Search';
+
 import { useNavigate } from 'react-router-dom';
+import { setSearchResult } from '../../store/actions.ts';
+import { useAppDispatch } from '../../store/store.ts';
 
 const { Search } = Input;
 
 const Header = () => {
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
 
-    const onSearch: SearchProps['onSearch'] = ( async (value) => {
+    const onSearch = async (value: string) => {
         const searchBooks = await fetch(`https://api.itbook.store/1.0/search/${value}`);
         const { books } = await searchBooks.json();
-
-        console.log({ value, books });
-        navigate('/search', {state: { value, books }});
-    });
+        dispatch(setSearchResult({ value, books }));
+        navigate('/search');
+    };
 
     const onCart = () => {
         navigate('/your-cart');

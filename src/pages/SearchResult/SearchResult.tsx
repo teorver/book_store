@@ -1,12 +1,12 @@
 import { Col, Row } from 'antd';
 import BookCard from '../../components/BookCard/BookCard';
 import { IBook } from '../../utils/types';
-import { useLocation } from 'react-router-dom';
 import './SearchResult.css';
+import {useSelector} from "react-redux";
+
 
 const SearchResult = () => {
-    const { state } = useLocation();
-    const { value, books } = state || { value: '', books: [] };
+    const { value, books } = useSelector((state) => state.search); // Assuming 'search' is the slice name in your Redux store
 
     return (
         <section className="search_result-wrapper">

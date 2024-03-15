@@ -1,9 +1,17 @@
 export interface SingleBook {
-    isbn13: string,
+    title: string;
+    subtitle: string;
+    value: string;
+    price: string;
+    image: string;
 }
 
 const initialBook: SingleBook = {
-    isbn13: '',
+    title: "",
+    subtitle: "",
+    value: "",
+    price: "",
+    image: "",
 }
 
 export default initialBook;

@@ -1,20 +1,30 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Book_isbn } from '../../store.types';
-import initialBook, { SingleBook } from './book.types';
+// book.slice.ts
 
-const isbnSlice = createSlice({
-    name: Book_isbn.CURRENT_ISBN,
-    initialState: initialBook,
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { setSearchResult } from '../../actions';
+
+interface SearchState {
+    value: string;
+    books: any[];
+}
+
+const initialState: SearchState = {
+    value: '',
+    books: [],
+};
+
+const searchSlice = createSlice({
+    name: 'search',
+    initialState,
     reducers: {
-        setIsbn: (state: SingleBook, action: { payload: SingleBook }) => {
-            state.isbn13 = action.payload.isbn13;
-        },
-        updateIsbn: (state: SingleBook, action: { payload: string }) => {
-            state.isbn13 = action.payload
-        },
-    }
+        // Define other reducers if needed
+    },
+    extraReducers: (builder) => {
+        builder.addCase(setSearchResult, (state, action: PayloadAction<{ value: string; books: any[] }>) => {
+            state.value = action.payload.value;
+            state.books = action.payload.books;
+        });
+    },
 });
 
-export const { setIsbn, updateIsbn } = isbnSlice.actions;
-
-export default isbnSlice.reducer;
+export default searchSlice.reducer;

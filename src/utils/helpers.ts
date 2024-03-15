@@ -1,14 +1,18 @@
-import {IBook, IOpenedBook} from "./types.ts";
+import { IOpenedBook} from "./types.ts";
 
 const vat = 12.50;
-const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+const getLocalStorageCart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+const handleLocalStorage = (value: IOpenedBook[]) => {
+    localStorage.setItem('cart', JSON.stringify(value));
+}
 
 const getRandomRating = () => (Math.random() * 5).toFixed(1);
 
 const sumBooksPrice = () => {
     let booksSum = 0;
 
-    cartItems.map(({ price }: IOpenedBook) => {
+    getLocalStorageCart.map(({ price }: IOpenedBook) => {
         let newVal = +(price.slice(1));
         booksSum += newVal;
     });
@@ -31,11 +35,23 @@ const handleTotalSum = (a: number, b: number) => {
 
 const totalPages = (a: number, b: number) => Math.ceil(a / b);
 
-const getDisplayedBooksQty = (page: number, pageItems: number, books: IBook[] | null) => {
-    const startIndex = (page - 1) * pageItems;
-    const endIndex = startIndex + pageItems;
-    return books ? books.slice(startIndex, endIndex) : [];
-}
+const handleBookQty = (qtyValue: number, action: string, callBackFunc) => {
+    let updatedQty = qtyValue;
+
+    if (action === 'increase') {
+        updatedQty += 1;
+    } else if (action === 'decrease') {
+        updatedQty = Math.max(updatedQty - 1, 1);
+    }
+    callBackFunc(updatedQty);
+};
+
+const handleSearch = ( async (value: string) => {
+    const searchBooks = await fetch(`https://api.itbook.store/1.0/search/${value}`);
+    const { books } = await searchBooks.json();
+
+    return {value, books };
+});
 
 export {
     getRandomRating,
@@ -43,7 +59,9 @@ export {
     handleTotalSum,
     handleVATValue,
     vat,
-    cartItems,
+    getLocalStorageCart,
     totalPages,
-    getDisplayedBooksQty
+    handleBookQty,
+    handleLocalStorage,
+    handleSearch
 };

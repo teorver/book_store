@@ -1,7 +1,15 @@
 import './Cart.css';
 import {FaArrowLeft} from "react-icons/fa6";
 import {Link} from "react-router-dom";
-import {handleTotalSum, handleVATValue, sumBooksPrice, vat} from '../../utils/helpers';
+import {
+    getLocalStorageCart,
+    handleBookQty,
+    handleLocalStorage,
+    handleTotalSum,
+    handleVATValue,
+    sumBooksPrice,
+    vat
+} from '../../utils/helpers';
 import {Col, Input, Row} from "antd";
 import {TiDeleteOutline} from "react-icons/ti";
 import {useEffect, useState} from "react";
@@ -12,25 +20,13 @@ const Cart = () => {
     const [cartItems, setCartItems] = useState<IOpenedBook[] | []>([]);
 
     useEffect(() => {
-        const existingCart = JSON.parse(localStorage.getItem('cart') || '[]');
-        setCartItems(existingCart);
+        setCartItems(getLocalStorageCart);
         sumBooksPrice();
     }, []);
 
-    const handleBookQty = (action: string) => {
-        let updatedQty = currentQty;
-
-        if (action === 'increase') {
-            updatedQty += 1;
-        } else if (action === 'decrease') {
-            updatedQty = Math.max(updatedQty - 1, 1);
-        }
-        setQty(updatedQty);
-    };
-
     const deleteBook = (index: number) => {
         const updatedCart: IOpenedBook[] = [...cartItems.slice(0, index), ...cartItems.slice(index + 1)];
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        handleLocalStorage(updatedCart);
         window.location.reload();
     };
 
@@ -52,13 +48,13 @@ const Cart = () => {
                             <button
                                 type="button"
                                 className="qty-btn"
-                                onClick={() => handleBookQty('decrease')}
+                                onClick={() => handleBookQty(currentQty, 'decrease', setQty)}
                             >-</button>
                             <Input defaultValue={currentQty} value={currentQty} className="qty_value" />
                             <button
                                 type="button"
                                 className="qty-btn"
-                                onClick={() => handleBookQty('increase')}
+                                onClick={() => handleBookQty(currentQty, 'increase', setQty)}
                             >+</button>
                         </div>
                     </div>

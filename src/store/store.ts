@@ -1,17 +1,15 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import { useDispatch } from 'react-redux';
-import { Book_isbn } from './store.types';
-import { isbnReducer } from './slices/slices';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import searchReducer from './slices/book/book.slice';
+import {useDispatch} from "react-redux";
 
 const rootReducer = combineReducers({
-    [Book_isbn.CURRENT_ISBN]: isbnReducer,
+    search: searchReducer,
+    // Add other reducers here if needed
 });
 
-const setupStore = () => configureStore({
+const store = configureStore({
     reducer: rootReducer,
 });
-
-const store = setupStore();
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppDispatch = typeof store.dispatch
