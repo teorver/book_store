@@ -6,7 +6,7 @@ import {useSelector} from "react-redux";
 
 
 const SearchResult = () => {
-    const { value, books } = useSelector((state) => state.search); // Assuming 'search' is the slice name in your Redux store
+    const { value, books } = useSelector((state) => state.search);
 
     return (
         <section className="search_result-wrapper">
