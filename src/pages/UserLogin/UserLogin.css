@@ -1,0 +1,16 @@
+.login_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 72px 0;
+    margin: 0 auto;
+    width: 544px;
+}
+
+#rc-tabs-1-tab-1, #rc-tabs-1-tab-2{
+    width: 239px;
+}
+
+#rc-tabs-1-more{
+    display: none;
+}

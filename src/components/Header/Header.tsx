@@ -30,6 +30,10 @@ const Header = () => {
         navigate('/favorites');
     }
 
+    const onUserAvatar = () => {
+        navigate('/sign-in');
+    }
+
     return (
         <section className="header-wrapper">
             <span className="header-span">BOOKSTORE</span>
@@ -37,7 +41,7 @@ const Header = () => {
             <div className="action-buttons">
                 <CiHeart className="icon" onClick={onFavorites} />
                 <PiShoppingCartDuotone className="icon" onClick={onCart} />
-                <LuUser className="icon" />
+                <LuUser className="icon" onClick={onUserAvatar} />
             </div>
         </section>
     );
