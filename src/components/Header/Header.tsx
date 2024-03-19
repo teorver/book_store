@@ -17,8 +17,13 @@ const Header = () => {
 
     const onSearch = async (value: string) => {
         const { books } = await getSearchResult(value);
-        dispatch(setSearchResult({ value, books }));
-        navigate('/search');
+        if (books && books.length > 0) {
+            dispatch(setSearchResult({ value, books }));
+            navigate('/search');
+        } else {
+            window.location.reload();
+            navigate('/search');
+        }
     };
 
     const onCart = () => {
@@ -38,7 +43,7 @@ const Header = () => {
     return (
         <section className="header-wrapper">
             <span className="header-span">BOOKSTORE</span>
-            <Search placeholder="Search" allowClear onSearch={onSearch} className="search-input" />
+            <Search placeholder="Search" onSearch={onSearch} className="search-input" />
             <div className="action-buttons">
                 <CiHeart className="icon" onClick={onFavorites} />
                 <PiShoppingCartDuotone className="icon" onClick={onCart} />
