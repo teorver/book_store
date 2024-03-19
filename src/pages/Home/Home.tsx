@@ -2,17 +2,25 @@ import {useEffect, useState} from "react";
 import {Col, Pagination, Row} from 'antd';
 import BookCard from '../../components/BookCard/BookCard';
 import getBooksInfo from '../../api/books';
-import {IBook} from '../../utils/types';
 import './Home.css';
 import { totalPages } from "../../utils/helpers.ts";
+import {useDispatch, useSelector} from "react-redux";
+import { fetchBooksRequest, fetchBooksSuccess } from '../../store/slices/allBooks/allBooksSlice';
 
 const Home = () => {
-    const [books, setBooks] = useState<IBook[] | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
+    const dispatch = useDispatch();
+    const { books } = useSelector((state) => state.fullBookList);
+
+    const fetchBooks = async () => {
+        dispatch(fetchBooksRequest());
+        const booksInfo = await getBooksInfo();
+        dispatch(fetchBooksSuccess(booksInfo));
+    }
 
     useEffect(() => {
-        getBooksInfo().then(response => setBooks(response));
-    }, []);
+        fetchBooks();
+    }, [dispatch]);
 
     const itemsPerPage = 12;
     const totalItems = books ? books.length : 0;
