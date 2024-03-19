@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import searchReducer from './slices/book/book.slice';
 import {useDispatch} from "react-redux";
+import signUpReducer from "./slices/signUp/signUpReducer";
 
 const rootReducer = combineReducers({
     search: searchReducer,
+    signUp: signUpReducer
 });
 
 const store = configureStore({

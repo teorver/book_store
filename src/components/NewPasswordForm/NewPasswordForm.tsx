@@ -40,7 +40,7 @@ const NewPasswordForm = () => {
                     Password
                 </span>
                 <input
-                    type="text"
+                    type="password"
                     style={{width: "100%", padding: "14px 20px 10px 20px"}}
                     placeholder="Your email"
                 />
@@ -54,7 +54,7 @@ const NewPasswordForm = () => {
                     Confirm Password
                 </span>
                 <input
-                    type="text"
+                    type="password"
                     style={{width: "100%", padding: "14px 20px 10px 20px"}}
                     placeholder="Confirm your password"
                 />

@@ -1,5 +1,23 @@
+import { useNavigate } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import { updateSignUpData } from "../../../store/slices/signUp/signUpReducer";
 
 const SignUpTab = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const signUpData = useSelector(state => state.signUp);
+
+    const handleSignUp = () => {
+        navigate("/user-account");
+    }
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'name' || name === 'email' || name === 'password') {
+            dispatch(updateSignUpData({ [name]: value }));
+        }
+    };
+
     return (
         <section
             style={{
@@ -24,6 +42,8 @@ const SignUpTab = () => {
                 type="text"
                 style={{width: "100%", padding: "14px 20px 10px 20px"}}
                 placeholder="Your name"
+                onChange={handleInputChange}
+                name="name"
             />
             <span
                 style={{
@@ -38,6 +58,8 @@ const SignUpTab = () => {
                 type="text"
                 style={{width: "100%", padding: "14px 20px 10px 20px"}}
                 placeholder="Your email"
+                name="email"
+                onChange={handleInputChange}
             />
             <span
                 style={{
@@ -49,9 +71,11 @@ const SignUpTab = () => {
                 Password
             </span>
             <input
-                type="text"
+                type="password"
                 style={{width: "100%", padding: "14px 20px 10px 20px"}}
                 placeholder="Your Password"
+                name="password"
+                onChange={handleInputChange}
             />
             <span
                 style={{
@@ -63,9 +87,9 @@ const SignUpTab = () => {
                 Confirm password
             </span>
             <input
-                type="text"
+                type="password"
                 style={{width: "100%", padding: "14px 20px 10px 20px"}}
-                placeholder="Confirm your email"
+                placeholder="Confirm your password"
             />
             <button
                 type="submit"
@@ -83,6 +107,7 @@ const SignUpTab = () => {
                     fontWeight: "700",
                     marginTop: '40px'
                 }}
+                onClick={handleSignUp}
             >SIGN UP
             </button>
         </section>

@@ -1,12 +1,20 @@
-import {Link, useNavigate} from "react-router-dom";
-
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {Link, useNavigate } from "react-router-dom";
+import { signIn } from "../../../store/slices/auth/authActions";
 
 const SignInTab = () => {
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const history = useNavigate();
 
-    const onClick = () => {
-        navigate("/user-account");
-    }
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSignIn = () => {
+        dispatch(signIn(email, password)).then(() => {
+            history("/user-account");
+        });
+    };
 
     return (
         <section style={{
@@ -30,6 +38,7 @@ const SignInTab = () => {
                 type="text"
                 style={{ width: "100%", padding: "14px 20px 10px 20px" }}
                 placeholder="Your email"
+                onChange={(e) => setEmail(e.target.value)}
             />
             <span
                 style={{
@@ -41,9 +50,10 @@ const SignInTab = () => {
                 Password
             </span>
             <input
-                type="text"
+                type="password"
                 style={{width: "100%", padding: "14px 20px 10px 20px"}}
                 placeholder="Your Password"
+                onChange={(e) => setPassword(e.target.value)}
             />
             <Link to="/reset-password">
                 <span
@@ -70,10 +80,10 @@ const SignInTab = () => {
                     fontWeight: "700",
                     marginTop: '40px'
                 }}
-                onClick={onClick}
+                onClick={handleSignIn}
             >SIGN IN</button>
         </section>
-    )
-}
+    );
+};
 
 export default SignInTab;
