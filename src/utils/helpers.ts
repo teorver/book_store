@@ -2,9 +2,14 @@ import { IOpenedBook} from "./types.ts";
 
 const vat = 12.50;
 const getLocalStorageCart = JSON.parse(localStorage.getItem('cart') || '[]');
+const getFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
 
 const handleLocalStorage = (value: IOpenedBook[]) => {
     localStorage.setItem('cart', JSON.stringify(value));
+}
+
+const handleFavorites = (value: IOpenedBook[]) => {
+    localStorage.setItem('favorites', JSON.stringify(value));
 }
 
 const getRandomRating = () => (Math.random() * 5).toFixed(1);
@@ -53,6 +58,8 @@ export {
     handleVATValue,
     vat,
     getLocalStorageCart,
+    getFavorites,
+    handleFavorites,
     totalPages,
     handleBookQty,
     handleLocalStorage,

@@ -7,14 +7,14 @@ import {HeartTwoTone} from "@ant-design/icons";
 import {Col, Row} from "antd";
 import BookCard from "../../components/BookCard/BookCard.tsx";
 import getBooksInfo from "../../api/books.ts";
-import {getLocalStorageCart, handleLocalStorage} from "../../utils/helpers.ts";
+import {getFavorites, handleFavorites} from "../../utils/helpers.ts";
 
 const Favorites = () => {
     const [bookmarks, setBookmarks] = useState<IOpenedBook[] | []>([]);
     const [books, setBooks] = useState<IBook[] | null>(null);
 
     useEffect(() => {
-        setBookmarks(getLocalStorageCart);
+        setBookmarks(getFavorites);
         getBooksInfo().then(response => setBooks(response));
     }, []);
 
@@ -22,7 +22,7 @@ const Favorites = () => {
         const updatedBookmarks = [...bookmarks];
         updatedBookmarks.splice(index, 1);
         setBookmarks(updatedBookmarks);
-        handleLocalStorage(updatedBookmarks);
+        handleFavorites(updatedBookmarks);
     };
 
     return (

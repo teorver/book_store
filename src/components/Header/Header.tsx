@@ -28,6 +28,7 @@ const Header = () => {
 
     const onFavorites = () => {
         navigate('/favorites');
+        window.location.reload();
     }
 
     const onUserAvatar = () => {
