@@ -1,11 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch } from "react-redux";
 import { updateSignUpData } from "../../../store/slices/signUp/signUpReducer";
 
 const SignUpTab = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const signUpData = useSelector(state => state.signUp);
 
     const handleSignUp = () => {
         navigate("/user-account");

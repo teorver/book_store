@@ -1,5 +1,5 @@
-import {useState} from "react";
-import {message} from "antd";
+import { useState } from "react";
+import { message } from "antd";
 import { useNavigate } from 'react-router-dom';
 
 const ResetPasswordForm = () => {
