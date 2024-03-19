@@ -74,6 +74,14 @@ const SingleBookPage = () => {
         }
     };
 
+    const handleScroll = () => {
+        window.scrollTo({
+            top: 650,
+            left: 150,
+            behavior: 'smooth',
+        });
+    }
+
     return (
         <section className="single_book-wrapper">
             <Link to="/">
@@ -122,15 +130,19 @@ const SingleBookPage = () => {
                             <div className="row-data">Paper book / ebook (PDF)</div>
                         </Col>
                     </Row>
-                    <button type="button" className="more_details-btn">More details <RiArrowDownSLine /></button>
+                    <button type="button" className="more_details-btn" onClick={handleScroll} >More details <RiArrowDownSLine /></button>
                     <button type="button" className="add_to_card-btn" onClick={addToCart}>ADD TO CART</button>
                     <a href={singleBook?.url} className="show-preview">Preview Book</a>
                 </div>
             </div>
             <Tabs defaultActiveKey="1" items={tabs} onChange={onChange} />
             <div className="social-icons">
-                <SlSocialFacebook />
-                <SlSocialTwitter />
+                <Link to="https://www.facebook.com/">
+                    <SlSocialFacebook style={{ color: 'rgba(49, 48, 55, 1)' }} />
+                </Link>
+                <Link to="https://www.twitter.com/" style={{ color: 'rgba(49, 48, 55, 1)' }} >
+                    <SlSocialTwitter />
+                </Link>
                 <BsThreeDots />
             </div>
             <div className="subscribe">
