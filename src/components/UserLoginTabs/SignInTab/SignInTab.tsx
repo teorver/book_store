@@ -5,15 +5,15 @@ import { signIn } from "../../../store/slices/auth/authActions";
 
 const SignInTab = () => {
     const dispatch = useDispatch();
-    const history = useNavigate();
+    const navigate = useNavigate();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
     const handleSignIn = () => {
-        dispatch(signIn(email, password)).then(() => {
-            history("/user-account");
-        });
+        const requestBody = { email, password };
+        dispatch(signIn(requestBody));
+        navigate("/user-account");
     };
 
     return (

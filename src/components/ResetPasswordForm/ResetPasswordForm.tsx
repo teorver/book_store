@@ -20,7 +20,7 @@ const ResetPasswordForm = () => {
         message.success(`You will receive an email on ${email} with a link to reset your password!`);
     };
 
-    const handleInputChange = (event) => {
+    const handleInputChange = (event: any) => {
         setEmail(event.target.value);
     };
 

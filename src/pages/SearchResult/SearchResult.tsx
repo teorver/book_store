@@ -3,10 +3,11 @@ import BookCard from '../../components/BookCard/BookCard';
 import { IBook } from '../../utils/types';
 import './SearchResult.css';
 import {useSelector} from "react-redux";
+import {RootState} from "../../store/store.ts";
 
 
 const SearchResult = () => {
-    const { value, books } = useSelector((state) => state.search);
+    const { value, books } = useSelector((state: RootState) => state.search);
 
     return (
         <section className="search_result-wrapper">

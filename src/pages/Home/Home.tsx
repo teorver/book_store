@@ -6,11 +6,13 @@ import './Home.css';
 import { totalPages } from "../../utils/helpers.ts";
 import {useDispatch, useSelector} from "react-redux";
 import { fetchBooksRequest, fetchBooksSuccess } from '../../store/slices/allBooks/allBooksSlice';
+import {RootState} from "../../store/store.ts";
+import {IBook} from "../../utils/types.ts";
 
 const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const dispatch = useDispatch();
-    const { books } = useSelector((state) => state.fullBookList);
+    const { books } = useSelector((state: RootState) => state.fullBookList);
 
     const fetchBooks = async () => {
         dispatch(fetchBooksRequest());
@@ -26,7 +28,7 @@ const Home = () => {
     const totalItems = books ? books.length : 0;
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const displayedBooks = books ? books.slice(startIndex, endIndex) : [];
+    const displayedBooks: IBook[] = books ? books.slice(startIndex, endIndex) : [];
 
     const calculatedPages = totalPages(totalItems, itemsPerPage);
 

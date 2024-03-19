@@ -1,4 +1,5 @@
 import { IOpenedBook} from "./types.ts";
+import React from "react";
 
 const vat = 12.50;
 const getLocalStorageCart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -17,10 +18,13 @@ const getRandomRating = () => (Math.random() * 5).toFixed(1);
 const sumBooksPrice = () => {
     let booksSum = 0;
 
-    getLocalStorageCart.map(({ price }: IOpenedBook) => {
-        let newVal = +(price.slice(1));
-        booksSum += newVal;
+    getLocalStorageCart.forEach(({ price }: IOpenedBook) => {
+        if (price) {
+            let newVal = +(price.slice(1));
+            booksSum += newVal;
+        }
     });
+
     return booksSum;
 };
 
@@ -40,7 +44,7 @@ const handleTotalSum = (a: number, b: number) => {
 
 const totalPages = (a: number, b: number) => Math.ceil(a / b);
 
-const handleBookQty = (qtyValue: number, action: string, callBackFunc) => {
+const handleBookQty = (qtyValue: number, action: string, callBackFunc:  React.Dispatch<React.SetStateAction<number>>) => {
     let updatedQty = qtyValue;
 
     if (action === 'increase') {

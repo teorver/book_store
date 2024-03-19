@@ -1,3 +1,5 @@
+import {IBook} from "../../../utils/types.ts";
+
 export const FETCH_BOOKS_REQUEST = 'FETCH_BOOKS_REQUEST';
 export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS';
 export const FETCH_BOOKS_FAILURE = 'FETCH_BOOKS_FAILURE';
@@ -6,14 +8,9 @@ export const fetchBooksRequest = () => ({
     type: FETCH_BOOKS_REQUEST,
 });
 
-export const fetchBooksSuccess = (books) => ({
+export const fetchBooksSuccess = (books: IBook) => ({
     type: FETCH_BOOKS_SUCCESS,
     payload: books,
-});
-
-export const fetchBooksFailure = (error) => ({
-    type: FETCH_BOOKS_FAILURE,
-    payload: error,
 });
 
 const initialState = {
@@ -22,7 +19,7 @@ const initialState = {
     error: null,
 };
 
-const booksReducer = (state = initialState, action) => {
+const booksReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case FETCH_BOOKS_REQUEST:
             return {

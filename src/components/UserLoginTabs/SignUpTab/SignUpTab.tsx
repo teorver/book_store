@@ -10,7 +10,7 @@ const SignUpTab = () => {
         navigate("/user-account");
     }
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: any) => {
         const { name, value } = e.target;
         if (name === 'name' || name === 'email' || name === 'password') {
             dispatch(updateSignUpData({ [name]: value }));

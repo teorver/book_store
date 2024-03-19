@@ -4,13 +4,14 @@ import './UserAccountForm.css';
 import { Form, Row, Col } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import { updateSignUpData } from "../../store/slices/signUp/signUpReducer.ts";
+import { RootState } from "../../store/store.ts";
 
 const UserAccountForm = () => {
     const navigate = useNavigate();
-    const userInfo = useSelector(state => state.signUp);
+    const userInfo = useSelector((state: RootState) => state.signUp);
     const dispatch = useDispatch();
 
-    const handlePasswordChange = (e) => {
+    const handlePasswordChange = (e: any) => {
         const { name, value } = e.target;
         dispatch(updateSignUpData({ [name]: value }));
     };

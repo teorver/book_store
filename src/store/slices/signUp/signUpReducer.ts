@@ -1,6 +1,6 @@
 export const UPDATE_SIGNUP_DATA = 'UPDATE_SIGNUP_DATA';
 
-export const updateSignUpData = (data) => ({
+export const updateSignUpData = (data: any) => ({
     type: UPDATE_SIGNUP_DATA,
     payload: data,
 });
@@ -11,7 +11,7 @@ const initialState = {
     password: '',
 };
 
-const signUpReducer = (state = initialState, action) => {
+const signUpReducer = (state = initialState, action: any) => {
     switch (action.type) {
         case UPDATE_SIGNUP_DATA:
             return {

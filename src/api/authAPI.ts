@@ -3,10 +3,12 @@ interface SignInResponse {
     refreshToken: string;
 }
 
-export const signInAPI = async (
-    email: string,
-    password: string
-): Promise<SignInResponse> => {
+interface IBody {
+    email: string;
+    password: string;
+}
+
+export const signInAPI = async (body: IBody): Promise<SignInResponse> => {
     try {
         const response = await fetch("https://studapi.teachmeskills.by/auth/jwt/create/", {
             method: "POST",
@@ -14,8 +16,8 @@ export const signInAPI = async (
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                email: email,
-                password: password,
+                email: body.email,
+                password: body.password,
             }),
         });
 
@@ -28,7 +30,7 @@ export const signInAPI = async (
             accessToken: data.access,
             refreshToken: data.refresh,
         };
-    } catch (error) {
+    } catch (error: any) {
         throw new Error(error.message || "Failed to sign in");
     }
 };
