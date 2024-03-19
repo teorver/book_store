@@ -1,0 +1,16 @@
+.account-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 72px 0 0 0;
+    gap: 30px;
+}
+
+.account-title{
+    width: 90%;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 64px;
+    color: rgba(49, 48, 55, 1);
+}

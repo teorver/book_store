@@ -9,7 +9,7 @@ import {useState} from "react";
 const { TabPane } = Tabs;
 
 const UserLogin = () => {
-    const [selectedTab, setSelectedTab] = useState("1"); // Default to "1" for SignInTab
+    const [selectedTab, setSelectedTab] = useState("1");
 
     const handleTabChange = (key: string) => {
         setSelectedTab(key);

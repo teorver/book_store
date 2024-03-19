@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 
 const SignInTab = () => {
+    const navigate = useNavigate();
+
+    const onClick = () => {
+        navigate("/user-account");
+    }
+
     return (
         <section style={{
             display: "flex",
@@ -64,6 +70,7 @@ const SignInTab = () => {
                     fontWeight: "700",
                     marginTop: '40px'
                 }}
+                onClick={onClick}
             >SIGN IN</button>
         </section>
     )

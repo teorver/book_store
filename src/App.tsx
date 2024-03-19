@@ -10,6 +10,7 @@ import Favorites from "./pages/Favorites/Favorites.tsx";
 import UserLogin from './pages/UserLogin/UserLogin.tsx';
 import ResetPasswordForm from "./components/ResetPasswordForm/ResetPasswordForm.tsx";
 import NewPasswordForm from "./components/NewPasswordForm/NewPasswordForm.tsx";
+import UserAccountForm from "./components/UserAccountForm/UserAccountForm.tsx";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/sign-in" element={<UserLogin />}></Route>
             <Route path="/new-password" element={<NewPasswordForm />}></Route>
             <Route path="/reset-password" element={<ResetPasswordForm />}></Route>
+            <Route path="/user-account" element={<UserAccountForm />}></Route>
         </Routes>
       <Footer />
     </div>
