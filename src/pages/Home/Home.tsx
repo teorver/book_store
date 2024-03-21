@@ -5,7 +5,7 @@ import getBooksInfo from '../../api/books';
 import './Home.css';
 import { totalPages } from "../../utils/helpers.ts";
 import {useDispatch, useSelector} from "react-redux";
-import { fetchBooksRequest, fetchBooksSuccess } from '../../store/slices/allBooks/allBooksSlice';
+import { fetchBooksSuccess } from '../../store/slices/allBooks/allBooksSlice';
 import {RootState} from "../../store/store.ts";
 import {IBook} from "../../utils/types.ts";
 
