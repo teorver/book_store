@@ -13,7 +13,7 @@ const handleFavorites = (value: IOpenedBook[]) => {
     localStorage.setItem('favorites', JSON.stringify(value));
 }
 
-const getRandomRating = () => (Math.random() * 5).toFixed(1);
+const getRandomRating = () => (Math.random() * 5).toFixed(0);
 
 const sumBooksPrice = (bookQty: number) => {
     let booksSum: number = 0;

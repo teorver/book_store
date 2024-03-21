@@ -6,6 +6,7 @@ import {RiArrowDownSLine} from "react-icons/ri";
 import type {TabsProps} from 'antd';
 import {Button, Col, Row, Tabs} from 'antd';
 import {HeartOutlined} from '@ant-design/icons';
+import Rating from '@mui/material/Rating';
 
 import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
@@ -82,6 +83,8 @@ const SingleBookPage = () => {
         });
     }
 
+    const handleRating = (value: any) => +value; 
+
     return (
         <section className="single_book-wrapper">
             <Link to="/">
@@ -96,7 +99,7 @@ const SingleBookPage = () => {
                 <div className="book-main">
                     <div className="price-rating">
                         <span className="single_price">{singleBook?.price}</span>
-                        <span className="single_rating">Book Rating: {singleBook?.rating}</span>
+                        <Rating name="disabled" value={handleRating(singleBook?.rating)} disabled className="single_rating" />
                     </div>
                     <Row className="single-row">
                         <Col className="gutter-row" span={6}>

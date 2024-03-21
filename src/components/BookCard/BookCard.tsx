@@ -2,6 +2,7 @@ import { IBook } from '../../utils/types';
 import './BookCard.css';
 import { getRandomRating } from '../../utils/helpers';
 import { Link } from "react-router-dom";
+import Rating from '@mui/material/Rating';
 
 const BookCard = ({ image, title, subtitle, price, isbn13 }: IBook) => {
     const bookRating = getRandomRating();
@@ -18,7 +19,7 @@ const BookCard = ({ image, title, subtitle, price, isbn13 }: IBook) => {
                 <span className="book-subtitle">{subtitle}</span>
                 <div className="book-footer">
                     <span>{price}</span>
-                    <span>{bookRating}</span>
+                    <Rating name="disabled" value={+bookRating} disabled />
                 </div>
             </div>
         </div>
