@@ -23,4 +23,5 @@ export interface IOpenedBook {
     pages?: string;
     year?: string;
     pdf?: string[];
+    bookQty?: number;
 }

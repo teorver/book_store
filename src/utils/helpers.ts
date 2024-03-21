@@ -15,14 +15,16 @@ const handleFavorites = (value: IOpenedBook[]) => {
 
 const getRandomRating = () => (Math.random() * 5).toFixed(1);
 
-const sumBooksPrice = () => {
-    let booksSum = 0;
+const sumBooksPrice = (bookQty: number) => {
+    let booksSum: number = 0;
 
     getLocalStorageCart.forEach(({ price }: IOpenedBook) => {
         if (price) {
-            let newVal = +(price.slice(1));
+            let newVal: number = +(price.slice(1));
             booksSum += newVal;
         }
+
+        booksSum *= bookQty;
     });
 
     return booksSum;
@@ -44,13 +46,15 @@ const handleTotalSum = (a: number, b: number) => {
 
 const totalPages = (a: number, b: number) => Math.ceil(a / b);
 
-const handleBookQty = (qtyValue: number, action: string, callBackFunc:  React.Dispatch<React.SetStateAction<number>>) => {
+const handleBookQty = (qtyValue: number, action: string, bookQty: number, callBackFunc:  React.Dispatch<React.SetStateAction<number>>) => {
     let updatedQty = qtyValue;
 
     if (action === 'increase') {
         updatedQty += 1;
+        bookQty += 1;
     } else if (action === 'decrease') {
         updatedQty = Math.max(updatedQty - 1, 1);
+        bookQty -= 1;
     }
     callBackFunc(updatedQty);
 };

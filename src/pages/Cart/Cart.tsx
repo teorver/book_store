@@ -21,7 +21,7 @@ const Cart = () => {
 
     useEffect(() => {
         setCartItems(getLocalStorageCart);
-        sumBooksPrice();
+        sumBooksPrice(currentQty);
     }, []);
 
     const deleteBook = (index: number) => {
@@ -48,13 +48,13 @@ const Cart = () => {
                             <button
                                 type="button"
                                 className="qty-btn"
-                                onClick={() => handleBookQty(currentQty, 'decrease', setQty)}
+                                onClick={() => handleBookQty(currentQty, 'decrease', currentQty, setQty)}
                             >-</button>
-                            <Input defaultValue={currentQty} value={currentQty} className="qty_value" />
+                            <Input defaultValue={currentQty} value={currentQty} className="qty_value" style={{ padding: '0', display: 'flex', textAlign: 'center' }} />
                             <button
                                 type="button"
                                 className="qty-btn"
-                                onClick={() => handleBookQty(currentQty, 'increase', setQty)}
+                                onClick={() => handleBookQty(currentQty, 'increase', currentQty, setQty)}
                             >+</button>
                         </div>
                     </div>
@@ -72,7 +72,7 @@ const Cart = () => {
                         <div className="cart-row-title">Sum total</div>
                     </Col>
                     <Col className="gutter-row" span={6}>
-                        <div className="cart-row-data">$ {sumBooksPrice()}</div>
+                        <div className="cart-row-data">$ {sumBooksPrice(currentQty)}</div>
                     </Col>
                 </Row>
                 <Row className="single-row vat-row">
@@ -80,7 +80,7 @@ const Cart = () => {
                         <div className="cart-row-title">VAT</div>
                     </Col>
                     <Col className="gutter-row" span={6}>
-                        <div className="cart-row-data">$ {handleVATValue(vat, sumBooksPrice())}</div>
+                        <div className="cart-row-data">$ {handleVATValue(vat, sumBooksPrice(currentQty))}</div>
                     </Col>
                 </Row>
                 <Row className="single-row">
@@ -88,7 +88,7 @@ const Cart = () => {
                         <div className="cart-row-title">TOTAL:</div>
                     </Col>
                     <Col className="gutter-row" span={6}>
-                        <div className="cart-row-data">$ {handleTotalSum(vat, sumBooksPrice())}</div>
+                        <div className="cart-row-data">$ {handleTotalSum(vat, sumBooksPrice(currentQty))}</div>
                     </Col>
                 </Row>
                 <button type="button"

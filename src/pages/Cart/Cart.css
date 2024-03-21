@@ -87,7 +87,7 @@
     color: rgba(49, 48, 55, 1);
     display: flex;
     align-items: center;
-    padding: 66px 115px;
+    padding: 66px 15px;
 }
 
 .delete_from_cart{
@@ -96,6 +96,7 @@
     border: none;
     border-radius: 1px;
     width: 56px;
+    margin-left: auto;
 }
 
 .delete-btn-modifier{
