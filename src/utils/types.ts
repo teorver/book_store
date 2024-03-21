@@ -16,7 +16,7 @@ export interface IOpenedBook {
     language?: string,
     image?: string;
     url?: string;
-    rating?: string;
+    rating?: number;
     desc?: string;
     authors?: string;
     publisher?: string;
