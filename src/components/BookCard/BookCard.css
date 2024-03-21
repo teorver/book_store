@@ -1,5 +1,4 @@
 .card-wrapper{
-    margin-top: 48px;
     display: flex;
     flex-direction: column;
     width: 352px;
@@ -21,6 +20,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    height: 220px;
 }
 
 .book-title{
@@ -28,6 +28,8 @@
     font-size: 24px;
     line-height: 133%;
     color: #313037;
+    height: 64px;
+    margin: 20px 0 8px 0;
 }
 
 .book-subtitle{
@@ -35,6 +37,11 @@
     font-size: 16px;
     line-height: 150%;
     color: #A8A8A8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 0 40px 0;
+    height: 64px;
 }
 
 .book-footer{
