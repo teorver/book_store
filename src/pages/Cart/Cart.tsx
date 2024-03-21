@@ -58,7 +58,7 @@ const Cart = () => {
                             >+</button>
                         </div>
                     </div>
-                    <div className="book_price-cart">{item.price}</div>
+                    <div className="book_price-cart">${sumBooksPrice(currentQty)}</div>
                     <button
                         type="button"
                         className="delete_from_cart"

@@ -30,3 +30,4 @@ archive
 /playwright/.cache/
 .gitignore
 .vite
+Readme.md
