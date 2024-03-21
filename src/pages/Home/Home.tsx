@@ -15,6 +15,7 @@ const Home = () => {
     const { books } = useSelector((state: RootState) => state.fullBookList);
 
     const fetchBooks = async () => {
+        dispatch(fetchBooksRequest());
         const booksInfo = await getBooksInfo();
         dispatch(fetchBooksSuccess(booksInfo));
     }
