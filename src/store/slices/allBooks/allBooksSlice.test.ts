@@ -55,7 +55,7 @@ describe('allBooksSlice', () => {
   });
 
   it('should create an action for successful book fetch', () => {
-    const books = [{ id: '1', title: 'Test Book' }] as any;
+    const books = [{ id: '1', title: 'Test Book' }] as never;
     const expectedAction = {
       type: FETCH_BOOKS_SUCCESS,
       payload: books,
